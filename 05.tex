@@ -1,0 +1,159 @@
+% !TEX root = index.tex
+
+
+\section{Appendix: Fundamental Forms}
+
+Now for some hardcore differential geometry. We learned to compute curvatures for curvatures in the special case when the surface is the graph of a function and the point is a critical point. This is not a practical way to compute curvatures and we need a more ``coordinate independent'' way of doing this. This is achieved using the so called \textbf{fundamental forms}.
+
+\textbf{Curves:} We did a similar thing for curves, we first found the curvature as acceleration if the speed is constant and then discovered that ...
+
+
+
+
+
+First we start with parametrizing surfaces. We'll describe a surface $ S$ as the image of a function
+\begin{align*}
+  \Phi: \R^2_{u,v} \rightarrow \R^3
+\end{align*}
+The domain can be an open subset of $ \R^2$. For example,
+
+{\color{red} \textbf{ examples of parametrizations }}.
+
+If you unravel the definition of a derivative then you'll see that the vectors
+\begin{align}
+  \Phi_{u}, \Phi_{v}
+\end{align}
+are tangent to the surface $ S$. We can find the \textbf{unit normal vector} to the surface geometrically or using the formula
+\begin{align}
+  \vec{\mathbf{n}} = \dfrac{\Phi_{u} \times \Phi_{v}}{||\Phi_{u} \times \Phi_{v}||}
+\end{align}
+
+Now we can define the fundamental forms:
+
+
+
+
+
+
+\subsection{First Fundamental Form}
+  The first fundamental form is defined as
+  \begin{align}
+    \mathbb{F} :=
+    \begin{bmatrix}
+      \Phi_u \cdot \Phi_u & \Phi_u \cdot \Phi_v \\
+      \Phi_u \cdot \Phi_v & \Phi_v \cdot \Phi_v
+    \end{bmatrix}signed
+  \end{align}
+  If you know inner products, this is the inner product {\color{red} \textbf{ ... }}
+
+
+
+
+
+
+
+  \subsection{Second Fundamental Form}
+  The second fundamental form is defined as:
+  \begin{align}
+    \mathbb{S} :=
+    \begin{bmatrix}
+      \Phi_{uu} \cdot \vec{\mathbf{n}} & \Phi_{uv} \cdot \vec{\mathbf{n}} \\
+      \Phi_{uv} \cdot \vec{\mathbf{n}} & \Phi_{vv} \cdot \vec{\mathbf{n}}
+    \end{bmatrix}
+  \end{align}
+
+  The curvatures are now given by
+  \begin{align}
+    H &= \tr{\mathbb{S} \mathbb{F}^{-1}}/2 \\
+    \kappa &= \det{\mathbb{S} \mathbb{F}^{-1}}
+  \end{align}
+
+Unfortunately, the principal directions are harder to find using this definition, but the principal curvatures themselves are easily found from the Mean and Gaussian curvatures.
+
+\subsection{Gaussian Curvature using Fundamental Forms}
+
+
+
+
+
+
+
+
+
+\iffalse
+\section{Examples}
+
+\subsection{Sphere}
+    \begin{align}
+      x^2 + y^2 + z^2 &= r^2
+    \end{align}
+
+  Parametrization:
+  \begin{align}
+    z &= r \cos \phi\\
+    x &= r \cos \theta \sin \phi\\
+    y &= r \sin \theta \sin \phi
+  \end{align}
+
+  First Derivatives:
+  \begin{align}
+    \Phi_{\theta} =
+    \begin{bmatrix}
+      0 \\
+      -r \sin \theta \sin \phi \\
+      r \cos \theta \sin \phi
+    \end{bmatrix}
+    &&
+    \Phi_{\phi} =
+    \begin{bmatrix}
+      -r \sin \phi \\
+      r \cos \theta \cos \phi \\
+      r \sin \theta \cos \phi
+    \end{bmatrix}
+  \end{align}
+
+  First Fundamental Form:
+  \begin{align}
+    \Phi_{\theta}.\Phi_{\theta} &= r^2 \sin^2 \phi \\
+    \Phi_{\theta}.\Phi_{\phi} &= 0 \\
+    \Phi_{\phi}.\Phi_{\phi} &= r^2
+  \end{align}
+
+  Normal vector:
+  \begin{align}
+    \vec n = \begin{bmatrix} \cos \phi\\
+    \cos \theta \sin \phi\\
+    \sin \theta \sin \phi \end{bmatrix}
+  \end{align}
+
+  Second Derivatives:
+  \begin{align}
+    \Phi_{\theta \theta} =
+    \begin{bmatrix}
+      0 \\
+      -r \cos \theta \sin \phi \\
+      -r \sin \theta \sin \phi
+    \end{bmatrix}
+    &&
+    \Phi_{\phi \theta} =
+    \begin{bmatrix}
+      0 \\
+      -r \sin \theta \cos \phi \\
+      r \cos \theta \cos \phi
+    \end{bmatrix}
+    &&
+    \Phi_{\phi \phi} =
+    \begin{bmatrix}
+      -r \cos \phi \\
+      -r \cos \theta \sin \phi \\
+      -r \sin \theta \sin \phi
+    \end{bmatrix}
+  \end{align}
+
+  Second Fundamental form:
+  \begin{align}
+    \Phi_{\theta \theta}.\vec n &= -r \cos^2 \phi \\
+    \Phi_{\theta \phi}.\vec n &= 0 \\
+    \Phi_{\phi \phi}.\vec n &= -r
+  \end{align}
+\fi
